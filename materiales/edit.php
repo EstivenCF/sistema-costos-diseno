@@ -1,5 +1,5 @@
 <?php
-require_once "../config/db.php";
+require_once __DIR__ . "/../config/db.php";
 
 $id = $_GET['id'];
 
@@ -26,7 +26,7 @@ if (!$material) {
 
 <h2>Editar Material</h2>
 
-<form action="update.php" method="POST">
+<form action="index.php?page=actualizar_material" method="POST">
 
     <input type="hidden" name="id" value="<?= $material['id'] ?>">
 
@@ -38,8 +38,11 @@ if (!$material) {
 
     <div class="mb-3">
         <label>Unidad</label>
-        <input type="text" name="unidad" class="form-control"
-               value="<?= htmlspecialchars($material['unidad']) ?>" required>
+        <select name="unidad" class="form-control" required>
+            <option value="pie" <?= $material['unidad'] == 'pie' ? 'selected' : '' ?>>Pie</option>
+            <option value="yarda" <?= $material['unidad'] == 'yarda' ? 'selected' : '' ?>>Yarda</option>
+            <option value="metro" <?= $material['unidad'] == 'metro' ? 'selected' : '' ?>>Metro</option>
+        </select>
     </div>
 
     <div class="mb-3">

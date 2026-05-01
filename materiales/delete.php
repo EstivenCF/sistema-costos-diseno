@@ -1,5 +1,5 @@
 <?php
-require_once "../config/db.php";
+require_once __DIR__ . "/../config/db.php";
 
 if (isset($_GET['id'])) {
 
@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
-        header("Location: index.php");
+        header("Location: index.php?page=materiales");
         exit;
 
     } catch (PDOException $e) {

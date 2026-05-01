@@ -1,5 +1,5 @@
 <?php
-require_once "../config/db.php";
+require_once __DIR__ . "/../config/db.php";
 
 $stmt = $conn->query("SELECT * FROM materiales ORDER BY id DESC");
 $materiales = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -16,7 +16,7 @@ $materiales = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <h2>Materiales</h2>
 
-    <a href="create.php" class="btn btn-success mb-3">Nuevo Material</a>
+    <a href="index.php?page=crear_material" class="btn btn-success mb-3">Nuevo Material</a>
 
     <table class="table table-bordered">
         <thead>
@@ -36,8 +36,8 @@ $materiales = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
                 
                 <td>
-                    <a href="edit.php?id=<?= $m['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-                    <a href="delete.php?id=<?= $m['id'] ?>" 
+                    <a href="index.php?page=editar_material&id=<?= $m['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="index.php?page=eliminar_material&id=<?= $m['id'] ?>" 
                         class="btn btn-danger btn-sm"
                         onclick="return confirm('¿Seguro que quieres eliminar este material?')">
                         Eliminar

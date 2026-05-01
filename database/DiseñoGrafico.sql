@@ -1,4 +1,3 @@
-SELECT * FROM materiales
 CREATE TABLE materiales (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -36,3 +35,6 @@ CREATE TABLE trabajo_materiales (
 -- Índice para búsquedas rápidas por trabajo
 CREATE INDEX idx_trabajo_materiales_trabajo_id 
 ON trabajo_materiales(trabajo_id);
+
+
+ALTER TABLE trabajos ADD eliminado BOOLEAN DEFAULT FALSE;

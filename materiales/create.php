@@ -9,7 +9,7 @@
 
     <h2>Crear Material</h2>
 
-    <form action="store.php" method="POST">
+    <form method="POST" action="index.php?page=guardar_material">
         <div class="mb-3">
             <label>Nombre</label>
             <input type="text" name="nombre" class="form-control" required>
@@ -17,7 +17,11 @@
 
         <div class="mb-3">
             <label>Unidad (ej: pie, yarda)</label>
-            <input type="text" name="unidad" class="form-control" required>
+            <select name="unidad" class="form-control mb-2">
+                <option value="pie">Pie</option>
+                <option value="yarda">Yarda</option>
+                <option value="metro">Metro</option>
+            </select>
         </div>
 
         <div class="mb-3">
